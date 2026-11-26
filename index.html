@@ -114,11 +114,12 @@
     color: #fff;
     text-decoration: none;
     text-align: center;
-    background: linear-gradient(155deg, #0BA6EA 0%, var(--blue) 46%, var(--blue-deep) 100%);
+    --c1: #0BA6EA; --c2: #009BDF; --c3: #0086C6; --sh: 0, 110, 165;
+    background: linear-gradient(155deg, var(--c1) 0%, var(--c2) 46%, var(--c3) 100%);
     box-shadow:
       0 1px 0 rgba(255, 255, 255, .35) inset,
-      0 2px 4px rgba(0, 92, 138, .18),
-      0 22px 44px -18px rgba(0, 110, 165, .55);
+      0 2px 4px rgba(var(--sh), .20),
+      0 22px 44px -18px rgba(var(--sh), .55);
     transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s cubic-bezier(.2, .7, .2, 1);
   }
 
@@ -152,13 +153,18 @@
     transform: translateY(-6px);
     box-shadow:
       0 1px 0 rgba(255, 255, 255, .35) inset,
-      0 4px 8px rgba(0, 92, 138, .18),
-      0 34px 56px -20px rgba(0, 110, 165, .62);
+      0 4px 8px rgba(var(--sh), .20),
+      0 34px 56px -20px rgba(var(--sh), .62);
   }
   .door:hover .motif,
   .door:focus-visible .motif { transform: translate(-4%, -4%) scale(1.05); }
   .door:active { transform: translateY(-2px); }
   .door:focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
+
+
+  /* 버튼별 색 */
+  .door--hr { --c1: #2DBF7E; --c2: #13A667; --c3: #0B8F57; --sh: 8, 118, 72; }
+  .door--erc { --c1: #FF8B57; --c2: #F36E38; --c3: #DE5825; --sh: 186, 76, 28; }
 
   footer {
     padding-top: clamp(28px, 5vh, 56px);
@@ -233,7 +239,7 @@
 
   <ul class="doors">
     <li>
-      <a class="door" href="https://marpleworks.vercel.app/" target="_blank" rel="noopener">
+      <a class="door door--works" href="https://marpleworks.vercel.app/" target="_blank" rel="noopener">
         <svg class="motif" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
           <rect x="118" y="130" width="150" height="30" rx="15" stroke-width="7" opacity=".13"/>
           <rect x="66"  y="164" width="150" height="30" rx="15" stroke-width="7" opacity=".26"/>
@@ -244,7 +250,7 @@
       </a>
     </li>
     <li>
-      <a class="door" href="https://marplehr.vercel.app/" target="_blank" rel="noopener">
+      <a class="door door--hr" href="https://marplehr.vercel.app/" target="_blank" rel="noopener">
         <svg class="motif" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
           <rect x="84"  y="150" width="30" height="120" rx="15" stroke-width="7" opacity=".14"/>
           <rect x="122" y="124" width="30" height="120" rx="15" stroke-width="7" opacity=".20"/>
@@ -255,7 +261,7 @@
       </a>
     </li>
     <li>
-      <a class="door" href="https://marpleerc.vercel.app/" target="_blank" rel="noopener">
+      <a class="door door--erc" href="https://marpleerc.vercel.app/" target="_blank" rel="noopener">
         <svg class="motif" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
           <g transform="rotate(-32 150 158)">
             <rect x="110" y="145" width="80"  height="26" rx="13" stroke-width="7" opacity=".28"/>
